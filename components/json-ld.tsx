@@ -1,6 +1,7 @@
 import { site } from "@/content/site"
 
 // Organization + LocalBusiness structured data for the home page and brand.
+// Image routes are exported without an extension (out/apple-icon, out/opengraph-image).
 const data = {
   "@context": "https://schema.org",
   "@type": ["Organization", "LocalBusiness"],
@@ -8,8 +9,8 @@ const data = {
   name: site.name,
   description: site.description,
   url: `${site.siteUrl}/`,
-  logo: `${site.siteUrl}/apple-icon.png`,
-  image: `${site.siteUrl}/opengraph-image.png`,
+  logo: `${site.siteUrl}/apple-icon`,
+  image: `${site.siteUrl}/opengraph-image`,
   telephone: site.phone.tel,
   address: {
     "@type": "PostalAddress",
