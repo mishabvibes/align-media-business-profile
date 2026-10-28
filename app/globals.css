@@ -256,6 +256,11 @@
     background-color: var(--ink);
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+  /* Anchor targets land below the 64px sticky header, with a little air. */
+  [id] {
+    scroll-margin-top: calc(4rem + 1rem);
   }
   body {
     @apply bg-background text-foreground type-body;

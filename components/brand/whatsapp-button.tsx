@@ -5,8 +5,8 @@ import { buttonVariants } from "@/components/ui/button"
 import { waLink } from "@/lib/whatsapp"
 import { WhatsAppIcon } from "./whatsapp-icon"
 
-// 44 / 52 / 64px tall pills, mapped onto the shared button sizes.
-const sizeMap = { md: "default", lg: "lg", xl: "xl" } as const
+// 36 / 44 / 52 / 64px tall pills, mapped onto the shared button sizes.
+const sizeMap = { sm: "sm", md: "default", lg: "lg", xl: "xl" } as const
 
 type WhatsAppButtonProps = Omit<React.ComponentProps<"a">, "href" | "target" | "rel"> & {
   /** Prefilled message; defaults to the site-wide one. */

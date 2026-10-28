@@ -59,7 +59,7 @@ function Label({ children }: { children: React.ReactNode }) {
 
 export default function Styleguide() {
   return (
-    <main className="flex-1">
+    <div className="flex-1">
       <header className="shell border-b border-line py-10">
         <Label>00 — Styleguide</Label>
         <h1 className="type-h2 mt-4 text-paper">Tokens, type and buttons.</h1>
@@ -245,6 +245,6 @@ export default function Styleguide() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }
