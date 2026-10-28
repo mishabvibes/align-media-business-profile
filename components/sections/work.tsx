@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { AnimatePresence, useReducedMotion } from "motion/react"
 import * as m from "motion/react-m"
@@ -52,11 +52,25 @@ const chipClass = [
   "after:hidden",
 ].join(" ")
 
+// Under 640px only this many tiles show until the visitor asks for the rest; from `sm` up every tile shows.
+const MOBILE_LIMIT = 6
+
 /** 02 — WORK: filter chips over a masonry-style column grid of placeholder tiles. */
 export function Work() {
   const [filter, setFilter] = useState<Filter>(portfolioIntro.allLabel)
   const reduce = useReducedMotion()
   const items = filter === portfolioIntro.allLabel ? portfolio : portfolio.filter((p) => p.category === filter)
+  // Once expanded it stays expanded, across filter changes too.
+  const [expanded, setExpanded] = useState(false)
+  const firstRevealed = useRef<HTMLLIElement>(null)
+  const focusPending = useRef(false)
+  const collapsed = !expanded && items.length > MOBILE_LIMIT
+
+  useEffect(() => {
+    if (!expanded || !focusPending.current) return
+    focusPending.current = false
+    firstRevealed.current?.focus()
+  }, [expanded])
 
   return (
     <section id="work" aria-labelledby="work-title" className="section-y scroll-mt-16">
@@ -95,23 +109,42 @@ export function Work() {
 
           {/* One panel whose value follows the active chip, so the grid can animate between filters. */}
           <TabsContent value={filter} className="text-base">
-            <ul className="relative columns-1 gap-x-5 sm:columns-2 lg:columns-3 lg:gap-x-6">
+            <ul id="work-grid" className="relative columns-1 gap-x-5 sm:columns-2 lg:columns-3 lg:gap-x-6">
               <AnimatePresence mode="popLayout" initial={false}>
-                {items.map((item) => (
+                {items.map((item, i) => (
                   <m.li
                     key={item.id}
+                    ref={i === MOBILE_LIMIT ? firstRevealed : undefined}
+                    tabIndex={i === MOBILE_LIMIT ? -1 : undefined}
                     layout={!reduce}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: reduce ? 0 : 0.3, ease: [0.2, 0.7, 0.1, 1] }}
-                    className="mb-10 break-inside-avoid sm:mb-12"
+                    // Hidden with CSS rather than left out, so the static HTML matches every viewport (no shift).
+                    className={`mb-8 break-inside-avoid outline-offset-4 focus-visible:outline-2 focus-visible:outline-violet-text sm:mb-12 ${
+                      collapsed && i >= MOBILE_LIMIT ? "max-sm:hidden" : ""
+                    }`}
                   >
                     <WorkTile item={item} />
                   </m.li>
                 ))}
               </AnimatePresence>
             </ul>
+            {collapsed && (
+              <button
+                type="button"
+                aria-expanded={false}
+                aria-controls="work-grid"
+                onClick={() => {
+                  focusPending.current = true
+                  setExpanded(true)
+                }}
+                className="mt-2 flex min-h-12 w-full items-center justify-center rounded-pill border border-line-strong px-6 font-mono text-xs font-medium uppercase tracking-[0.12em] text-paper transition-colors duration-150 ease-out hover:border-mute focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-text sm:hidden"
+              >
+                Show all work ({items.length})
+              </button>
+            )}
           </TabsContent>
         </Tabs>
       </div>
