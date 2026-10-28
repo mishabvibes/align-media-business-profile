@@ -347,7 +347,8 @@
 }
 
 /* Outlined display numerals (Process, 404): 1px line-strong stroke; pair with text-transparent.
-   Not named text-*: tailwind-merge (cn) would drop it as a text colour next to text-transparent. */
+   Not named text-*: tailwind-merge (cn) would drop it as a text colour next to text-transparent.
+   Recolour via --numeral-stroke: this shorthand beats a separate -webkit-text-stroke-color class. */
 @utility numeral-outline {
-  -webkit-text-stroke: 1px var(--line-strong);
+  -webkit-text-stroke: 1px var(--numeral-stroke, var(--line-strong));
 }

@@ -99,16 +99,6 @@ export const portfolio: PortfolioItem[] = [
     duration: "00:15",
   },
   {
-    id: "soc-02",
-    title: "Gym monthly content plan",
-    category: "Social",
-    code: "SOC-02",
-    image: "/portfolio/soc-02.webp",
-    alt: "Placeholder for a gym's monthly social content",
-    aspectRatio: "4:5",
-    isVideo: false,
-  },
-  {
     id: "ads-02",
     title: "Admissions lead campaign",
     category: "Ads",
@@ -116,6 +106,16 @@ export const portfolio: PortfolioItem[] = [
     image: "/portfolio/ads-02.webp",
     alt: "Placeholder for an admissions lead ad campaign",
     aspectRatio: "16:9",
+    isVideo: false,
+  },
+  {
+    id: "soc-02",
+    title: "Gym monthly content plan",
+    category: "Social",
+    code: "SOC-02",
+    image: "/portfolio/soc-02.webp",
+    alt: "Placeholder for a gym's monthly social content",
+    aspectRatio: "4:5",
     isVideo: false,
   },
   {

@@ -26,7 +26,8 @@ function Step({ step, index }: { step: ProcessStep; index: number }) {
         className={cn(
           "numeral-outline block text-transparent font-display text-8xl leading-[0.85] font-extrabold tracking-[-0.04em]",
           "transition-[color,-webkit-text-stroke-color] duration-700 ease-out-soft",
-          filled && "text-violet-text [-webkit-text-stroke-color:var(--violet-text)]",
+          // Drop the stroke once filled: it traces the font's overlapping contours (a box inside the "4").
+          filled && "text-violet-text [--numeral-stroke:transparent]",
         )}
       >
         {step.number}
