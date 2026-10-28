@@ -296,3 +296,8 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Outlined display numerals (Process, 404): 1px line-strong stroke; pair with text-transparent. */
+@utility text-outline {
+  -webkit-text-stroke: 1px var(--line-strong);
+}

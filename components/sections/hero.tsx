@@ -1,5 +1,6 @@
 import { CropMarks } from "@/components/brand/crop-marks"
 import { Eyebrow } from "@/components/brand/eyebrow"
+import { GridLines } from "@/components/brand/grid-lines"
 import { LineReveal } from "@/components/brand/line-reveal"
 import { Magnet } from "@/components/brand/magnet"
 import { WhatsAppButton } from "@/components/brand/whatsapp-button"
@@ -33,14 +34,8 @@ export function Hero() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(600px_circle_at_75%_20%,rgb(124_58_237/0.18),transparent_60%)]" />
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: grain }} />
-        <div className="shell hidden h-full opacity-50 lg:block">
-          <div className="grid-site h-full">
-            {Array.from({ length: 12 }, (_, i) => (
-              <span key={i} className="border-x border-line" />
-            ))}
-          </div>
-        </div>
       </div>
+      <GridLines />
 
       <div className="shell flex flex-1 flex-col pt-6 pb-10 sm:pb-14 lg:pt-10 lg:pb-16">
         <div className="relative flex flex-1 flex-col justify-end px-4 py-8 sm:px-8 sm:py-10 lg:px-10">
