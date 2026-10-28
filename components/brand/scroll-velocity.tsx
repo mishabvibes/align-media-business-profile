@@ -2,7 +2,6 @@
 
 import { useLayoutEffect, useRef, useState } from "react"
 import {
-  motion,
   useAnimationFrame,
   useMotionValue,
   useReducedMotion,
@@ -11,6 +10,7 @@ import {
   useTransform,
   useVelocity,
 } from "motion/react"
+import * as m from "motion/react-m"
 import { cn } from "cn"
 
 // Adapted from React Bits ScrollVelocity (reactbits.dev/text-animations/scroll-velocity):
@@ -73,13 +73,13 @@ export function ScrollVelocity({
 
   return (
     <div className={cn("overflow-hidden", className)}>
-      <motion.div className={cn("flex w-max", rowClassName)} style={{ x: reduce ? 0 : x }}>
+      <m.div className={cn("flex w-max", rowClassName)} style={{ x: reduce ? 0 : x }}>
         {Array.from({ length: copies }, (_, i) => (
           <div key={i} ref={i === 0 ? copyRef : undefined} className="flex shrink-0" aria-hidden={i > 0 || undefined}>
             {children}
           </div>
         ))}
-      </motion.div>
+      </m.div>
     </div>
   )
 }

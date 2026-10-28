@@ -72,7 +72,8 @@ function TabsContent({ className, ...props }: TabsPrimitive.Panel.Props) {
   return (
     <TabsPrimitive.Panel
       data-slot="tabs-content"
-      className={cn("flex-1 text-sm outline-none", className)}
+      // Focusable per the ARIA tabs pattern, so it keeps the global :focus-visible ring.
+      className={cn("flex-1 text-sm", className)}
       {...props}
     />
   )

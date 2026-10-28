@@ -2,17 +2,19 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { JsonLd } from "@/components/json-ld";
+import { MotionProvider } from "@/components/motion-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/content/site";
 import "./globals.css";
 
-// Display + wordmark. Axes need the full variable font (200–800); we use 600–800.
+// Display + wordmark, variable 200–800 (we use 600–800). Only the optical-size
+// axis is used; adding "wdth" would roughly double the font download.
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
   subsets: ["latin"],
   display: "swap",
-  axes: ["opsz", "wdth"],
+  axes: ["opsz"],
 });
 
 // Body / UI, variable 400–700; we use 400–600.
@@ -78,12 +80,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
-        <SiteHeader />
-        <main id="main" tabIndex={-1} className="flex flex-1 flex-col focus:outline-none">
-          {children}
-        </main>
-        <SiteFooter />
-        <FloatingWhatsApp />
+        <MotionProvider>
+          <SiteHeader />
+          <main id="main" tabIndex={-1} className="flex flex-1 flex-col focus:outline-none">
+            {children}
+          </main>
+          <SiteFooter />
+          <FloatingWhatsApp />
+        </MotionProvider>
       </body>
     </html>
   );

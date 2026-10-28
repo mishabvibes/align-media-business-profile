@@ -71,7 +71,7 @@ export function SiteHeader() {
       <div className="shell flex h-full items-center justify-between gap-6 lg:grid lg:grid-cols-[1fr_auto_1fr]">
         <a
           href={toHref("#top")}
-          className="-m-1 justify-self-start p-1"
+          className="-m-1 inline-flex min-h-11 items-center justify-self-start p-1"
           aria-label={`${site.name}, back to top`}
         >
           <Wordmark />
@@ -83,7 +83,7 @@ export function SiteHeader() {
               <li key={link.href}>
                 <a
                   href={toHref(link.href)}
-                  className="relative py-2 font-sans text-[0.9375rem] font-medium text-mute transition-colors duration-150 ease-out after:absolute after:inset-x-0 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-violet-text after:transition-transform after:duration-200 after:ease-out hover:text-paper hover:after:scale-x-100 focus-visible:text-paper"
+                  className="relative block py-3 font-sans before:absolute before:inset-y-0 before:-inset-x-2  text-[0.9375rem] font-medium text-mute transition-colors duration-150 ease-out after:absolute after:inset-x-0 after:bottom-2 after:h-px after:origin-left after:scale-x-0 after:bg-violet-text after:transition-transform after:duration-200 after:ease-out hover:text-paper hover:after:scale-x-100 focus-visible:text-paper"
                 >
                   {link.label}
                 </a>
@@ -99,7 +99,8 @@ export function SiteHeader() {
 
         {/* Mobile */}
         <div className="flex items-center gap-2 lg:hidden">
-          <WhatsAppButton size="sm" icon arrow={false}>
+          {/* 36px pill to fit the bar; the ::after stretches the tap area to 44px. */}
+          <WhatsAppButton size="sm" icon arrow={false} className="relative after:absolute after:inset-x-0 after:-inset-y-1">
             Chat<span className="sr-only"> on WhatsApp</span>
           </WhatsAppButton>
 
@@ -165,7 +166,7 @@ export function SiteHeader() {
                 <WhatsAppButton size="lg" icon className="w-full" />
                 <a
                   href={`tel:${site.phone.tel}`}
-                  className="self-center font-mono text-sm tracking-[0.04em] text-mute transition-colors hover:text-paper"
+                  className="inline-flex min-h-11 items-center self-center font-mono text-sm tracking-[0.04em] text-mute transition-colors hover:text-paper"
                 >
                   <span className="sr-only">Call </span>
                   {site.phone.display}

@@ -1,7 +1,8 @@
 "use client"
 
 import { useRef } from "react"
-import { motion, useInView, useReducedMotion, type UseInViewOptions } from "motion/react"
+import { useInView, useReducedMotion, type UseInViewOptions } from "motion/react"
+import * as m from "motion/react-m"
 
 // Adapted from Magic UI BlurFade (magicui.design/docs/components/blur-fade):
 // fade + 12px rise + light blur, once, as the block enters the viewport.
@@ -35,7 +36,7 @@ export function BlurFade({
   const seen = useInView(ref, { once: true, margin: inViewMargin })
   const reduce = useReducedMotion()
   const visible = !inView || seen
-  const Tag = motion[as] as typeof motion.div
+  const Tag = m[as] as typeof m.div
 
   return (
     <Tag

@@ -11,7 +11,9 @@ import { site } from "@/content/site"
 /** 05 — CONTACT: the closing CTA block on surface, with crop marks and one slow border beam. */
 export function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-title" className="section-y">
+    // overflow-x-clip: the border beam's square travels past the card edge (masked, but
+    // still laid out), which would otherwise widen the page on small screens.
+    <section id="contact" aria-labelledby="contact-title" className="section-y overflow-x-clip">
       <div className="shell">
         <div className="relative border border-line bg-surface">
           <CropMarks offset={8} />
@@ -34,7 +36,7 @@ export function Contact() {
                 <span className="type-label text-faint">{contact.phoneLabel}</span>
                 <a
                   href={`tel:${site.phone.tel}`}
-                  className="type-h3 group inline-flex items-center gap-3 self-start text-paper underline decoration-transparent decoration-1 underline-offset-[0.25em] transition-colors duration-150 ease-out hover:decoration-violet-text"
+                  className="type-h3 group inline-flex min-h-11 items-center gap-3 self-start text-paper underline decoration-transparent decoration-1 underline-offset-[0.25em] transition-colors duration-150 ease-out hover:decoration-violet-text"
                 >
                   <Phone aria-hidden="true" strokeWidth={1.5} className="size-6 shrink-0 text-violet-text" />
                   <span className="sr-only">Call </span>

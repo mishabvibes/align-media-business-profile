@@ -1,6 +1,7 @@
 "use client"
 
-import { motion, useReducedMotion } from "motion/react"
+import { useReducedMotion } from "motion/react"
+import * as m from "motion/react-m"
 
 // Headline lines rise out of a mask, one after another (design.md §6):
 // 600ms, cubic-bezier(.2,.7,.1,1), 80ms stagger. Per line, not per letter.
@@ -17,7 +18,7 @@ export function LineReveal({ lines, delay = 0.1 }: LineRevealProps) {
     // Bottom padding keeps descenders inside the mask at line-height 0.92;
     // the negative margin gives the space back so the leading is unchanged.
     <span key={i} className="block overflow-hidden pb-[0.1em] -mb-[0.1em]">
-      <motion.span
+      <m.span
         className="block"
         initial={{ y: "120%" }}
         animate={{ y: 0 }}
@@ -26,7 +27,7 @@ export function LineReveal({ lines, delay = 0.1 }: LineRevealProps) {
         }
       >
         {line}
-      </motion.span>
+      </m.span>
     </span>
   ))
 }

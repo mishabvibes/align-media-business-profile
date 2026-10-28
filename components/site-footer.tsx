@@ -9,7 +9,7 @@ import { waLink } from "@/lib/whatsapp"
 const toHref = (hash: string) => `/${hash}`
 
 const linkClass =
-  "text-mute underline decoration-transparent decoration-1 underline-offset-[0.3em] transition-colors duration-150 ease-out hover:text-paper hover:decoration-violet-text focus-visible:text-paper"
+  "inline-flex min-h-11 min-w-11 items-center text-mute underline decoration-transparent decoration-1 underline-offset-[0.3em] transition-colors duration-150 ease-out hover:text-paper hover:decoration-violet-text focus-visible:text-paper"
 
 // Layout after HyperUI's "Simple stacked" footer, restyled to the proof-sheet tokens.
 export function SiteFooter() {
@@ -27,7 +27,7 @@ export function SiteFooter() {
 
           <nav aria-label={footer.navLabel} className="col-span-2 lg:col-span-2 lg:col-start-6">
             <p className="type-label text-faint">{footer.sectionsLabel}</p>
-            <ul className="mt-4 flex flex-col gap-2.5">
+            <ul className="mt-2 flex flex-col">
               {site.nav.map((link) => (
                 <li key={link.href}>
                   <a href={toHref(link.href)} className={linkClass}>
@@ -40,9 +40,9 @@ export function SiteFooter() {
 
           <div className="col-span-2 lg:col-span-3">
             <p className="type-label text-faint">{footer.contactLabel}</p>
-            <ul className="mt-4 flex flex-col gap-2.5">
+            <ul className="mt-2 flex flex-col">
               <li>
-                <a href={waLink()} target="_blank" rel="noopener" className={`${linkClass} inline-flex items-center gap-2`}>
+                <a href={waLink()} target="_blank" rel="noopener" className={`${linkClass} gap-2`}>
                   <WhatsAppIcon className="size-4 shrink-0 text-violet-text" />
                   WhatsApp
                   <span className="sr-only"> (opens in a new tab)</span>

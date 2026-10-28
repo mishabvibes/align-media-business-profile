@@ -1,6 +1,7 @@
 "use client"
 
-import { motion, useReducedMotion, type MotionStyle } from "motion/react"
+import { useReducedMotion, type MotionStyle } from "motion/react"
+import * as m from "motion/react-m"
 import { cn } from "cn"
 
 // Adapted from Magic UI BorderBeam (magicui.design/docs/components/border-beam):
@@ -40,7 +41,7 @@ export function BorderBeam({
       style={{ "--beam-width": `${borderWidth}px` } as React.CSSProperties}
       className="pointer-events-none absolute inset-0 rounded-[inherit] border-(length:--beam-width) border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]"
     >
-      <motion.div
+      <m.div
         className={cn(
           "absolute aspect-square bg-linear-to-l from-(--beam-from) via-(--beam-to) to-transparent",
           className

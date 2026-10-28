@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { AnimatePresence, motion, useReducedMotion } from "motion/react"
+import { AnimatePresence, useReducedMotion } from "motion/react"
+import * as m from "motion/react-m"
 import { Play } from "lucide-react"
 
 import { BlurFade } from "@/components/brand/blur-fade"
@@ -97,7 +98,7 @@ export function Work() {
             <ul className="relative columns-1 gap-x-5 sm:columns-2 lg:columns-3 lg:gap-x-6">
               <AnimatePresence mode="popLayout" initial={false}>
                 {items.map((item) => (
-                  <motion.li
+                  <m.li
                     key={item.id}
                     layout={!reduce}
                     initial={{ opacity: 0 }}
@@ -107,7 +108,7 @@ export function Work() {
                     className="mb-10 break-inside-avoid sm:mb-12"
                   >
                     <WorkTile item={item} />
-                  </motion.li>
+                  </m.li>
                 ))}
               </AnimatePresence>
             </ul>

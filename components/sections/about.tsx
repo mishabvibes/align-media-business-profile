@@ -1,7 +1,8 @@
 "use client"
 
 import { useRef } from "react"
-import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react"
+import { useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react"
+import * as m from "motion/react-m"
 
 import { BlurFade } from "@/components/brand/blur-fade"
 import { Eyebrow } from "@/components/brand/eyebrow"
@@ -13,7 +14,7 @@ const PAPER = "#f1eee8"
 
 function Word({ word, progress, range }: { word: string; progress: MotionValue<number>; range: [number, number] }) {
   const color = useTransform(progress, range, [FAINT, PAPER])
-  return <motion.span style={{ color }}>{word}</motion.span>
+  return <m.span style={{ color }}>{word}</m.span>
 }
 
 /** Words go from faint to paper as the statement scrolls through the viewport (Anthracite-style). */
