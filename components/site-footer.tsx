@@ -54,6 +54,13 @@ export function SiteFooter() {
                   {site.phone.display}
                 </a>
               </li>
+              {site.email && (
+                <li>
+                  <a href={`mailto:${site.email}`} className={`${linkClass} break-all`}>
+                    {site.email}
+                  </a>
+                </li>
+              )}
               {site.socials.map((social) => (
                 <li key={social.href}>
                   <a href={social.href} target="_blank" rel="noopener" className={linkClass}>

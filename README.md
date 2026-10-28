@@ -47,9 +47,30 @@ Notes:
 - **Phone:** `site.phone.display` is what people see and `site.phone.tel` is used for
   click-to-call. Update both.
 - **Reply hours:** `site.replyHours` is a placeholder line; confirm it with the client
-  or set it to an empty string.
+  or set it to an empty string to hide it.
+- **Email:** set `site.email` to show it in the contact block and footer.
 - **Social links:** add `{ label, href }` items to `site.socials` and they appear in
   the footer.
+
+## Client details
+
+The client will pick the final location, tagline, social links, email and domain.
+Until then the site uses the placeholders below. Each one is a single value in
+`content/site.ts`; change it, run `npm test` (it checks the format) and rebuild.
+
+| Detail       | Where                          | Placeholder now                                  | Used in |
+| ------------ | ------------------------------ | ------------------------------------------------ | ------- |
+| Location     | `region`, `country` at the top | Kerala, India                                    | Hero label, About, footer, local-time clock, page title, description, JSON-LD |
+| Tagline      | `site.tagline`                 | "Design, video & social media that move your brand forward." | Footer, Open Graph image and alt text |
+| Hero headline | `content/hero.ts`             | "Design, video & social that move your brand forward." | Hero |
+| Social links | `site.socials`                 | none (hidden)                                    | Footer, JSON-LD `sameAs` |
+| Email        | `site.email`                   | `""` (hidden)                                    | Contact block, footer, JSON-LD |
+| Domain       | `site.siteUrl`                 | `https://alignmedia.in`                          | Metadata, Open Graph, JSON-LD, robots, sitemap |
+| Reply hours  | `site.replyHours`              | "Usually replies within a few hours · Mon–Sat"  | Contact block (set to `""` to hide) |
+
+If the studio moves out of India, also update `site.timeZone` (the footer clock) and
+the `"India"`/`"IN"` country values. The About text in `content/about.ts` and the
+description in `site.description` mention the region, so reread them after a change.
 
 ## Switch on the hidden sections
 

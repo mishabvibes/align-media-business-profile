@@ -12,14 +12,15 @@ const data = {
   logo: `${site.siteUrl}/apple-icon`,
   image: `${site.siteUrl}/opengraph-image`,
   telephone: site.phone.tel,
+  ...(site.email && { email: site.email }),
   address: {
     "@type": "PostalAddress",
-    addressRegion: "Kerala",
-    addressCountry: "IN",
+    addressRegion: site.region,
+    addressCountry: site.country.code,
   },
   areaServed: [
-    { "@type": "State", name: "Kerala" },
-    { "@type": "Country", name: "India" },
+    { "@type": "State", name: site.region },
+    { "@type": "Country", name: site.country.name },
   ],
   ...(site.socials.length > 0 && { sameAs: site.socials.map((s) => s.href) }),
 }

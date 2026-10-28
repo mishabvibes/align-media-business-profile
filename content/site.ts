@@ -8,12 +8,21 @@ export type SocialLink = {
   href: string
 }
 
+// Client-owned details. The client will decide the final location, tagline, social
+// links, email and domain; every place on the site reads them from here, so changing
+// a value below (and rebuilding) is all it takes. See "Client details" in README.md.
+const region = "Kerala"
+const country = { name: "India", code: "IN" }
+
 export const site = {
   name: "Align Media",
   tagline: "Design, video & social media that move your brand forward.",
   description:
-    "Align Media is a creative and digital studio in Kerala. Posters, video editing, social media, ad campaigns and branding for businesses that want to be noticed.",
+    `Align Media is a creative and digital studio in ${region}. Posters, video editing, social media, ad campaigns and branding for businesses that want to be noticed.`,
+  // Placeholder domain, no trailing slash. Used by metadata, OG, JSON-LD, robots and sitemap.
   siteUrl: "https://alignmedia.in",
+  // Leave empty to hide. When set, it shows in the contact block, footer and JSON-LD.
+  email: "" as string,
   phone: {
     display: "+91 95628 27463",
     tel: "+919562827463",
@@ -23,10 +32,12 @@ export const site = {
     number: "919562827463",
     defaultMessage: "Hi Align Media, I'd like to discuss a project.",
   },
-  location: "Based in Kerala, India · Working with clients everywhere",
+  region,
+  country,
+  location: `Based in ${region}, ${country.name} · Working with clients everywhere`,
   timeZone: "Asia/Kolkata",
-  timeLabel: "Kerala",
-  // TODO(client): placeholder claim, confirm reply hours with the client or remove.
+  timeLabel: region,
+  // TODO(client): placeholder claim, confirm reply hours or set to "" to hide.
   replyHours: "Usually replies within a few hours · Mon–Sat",
   nav: [
     { label: "Services", href: "#services" },
@@ -35,6 +46,7 @@ export const site = {
     { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
   ] satisfies NavLink[],
-  // Empty until the client shares links; icons render only when this has items.
+  // Empty until the client shares links, e.g. { label: "Instagram", href: "https://instagram.com/…" }.
+  // Links render in the footer (and JSON-LD sameAs) only when this has items.
   socials: [] as SocialLink[],
 } as const

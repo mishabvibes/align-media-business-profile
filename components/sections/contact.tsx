@@ -42,10 +42,20 @@ export function Contact() {
                   <span className="sr-only">Call </span>
                   <span className="tabular-nums">{site.phone.display}</span>
                 </a>
+                {site.email && (
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="type-body inline-flex min-h-11 items-center self-start break-all text-mute underline decoration-transparent decoration-1 underline-offset-[0.25em] transition-colors duration-150 ease-out hover:text-paper hover:decoration-violet-text"
+                  >
+                    {site.email}
+                  </a>
+                )}
               </div>
             </div>
 
-            <p className="type-label mt-12 border-t border-line pt-6 text-faint sm:mt-16">{contact.replyHours}</p>
+            {contact.replyHours && (
+              <p className="type-label mt-12 border-t border-line pt-6 text-faint sm:mt-16">{contact.replyHours}</p>
+            )}
           </BlurFade>
         </div>
       </div>

@@ -32,7 +32,7 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-const title = `${site.name}: Creative & Digital Studio in Kerala`;
+const title = `${site.name}: Creative & Digital Studio in ${site.region}`;
 
 // The opengraph-image, icon and apple-icon files in app/ are picked up
 // automatically; metadataBase turns their paths into absolute URLs.
