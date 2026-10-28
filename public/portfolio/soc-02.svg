@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500">
+  <title>Placeholder for a gym's monthly social content</title>
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="494" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="1500" fill="#1C1A22"/>
+  <rect x="240" y="360" width="228.8" height="288.8" fill="#3A3644"/>
+  <rect x="485.6" y="360" width="228.8" height="288.8" fill="#3A3644"/>
+  <rect x="731.2" y="360" width="228.8" height="288.8" fill="#2A2732"/>
+  <rect x="240" y="665.6" width="228.8" height="288.8" fill="#24212C"/>
+  <rect x="272" y="862" width="114.4" height="17.3" fill="#3A3644"/>
+  <rect x="485.6" y="665.6" width="228.8" height="288.8" fill="#2A2732"/>
+  <rect x="731.2" y="665.6" width="228.8" height="288.8" fill="#3A3644"/>
+  <rect x="240" y="971.2" width="228.8" height="288.8" fill="#2A2732"/>
+  <rect x="485.6" y="971.2" width="228.8" height="288.8" fill="#3A3644"/>
+  <rect x="731.2" y="971.2" width="228.8" height="288.8" fill="#7C3AED"/>
+  <text x="60" y="100" fill="#7D7887" font-family="'JetBrains Mono', 'Fira Mono', 'DejaVu Sans Mono', monospace" font-size="50" font-weight="500" letter-spacing="4">SOC-02</text>
+  <rect width="1200" height="1500" filter="url(#grain)" opacity="0.025"/>
+</svg>

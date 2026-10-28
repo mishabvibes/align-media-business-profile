@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <title>Placeholder for a café Instagram feed</title>
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="740" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="1200" fill="#2B1A55"/>
+  <rect x="273.6" y="240" width="206.4" height="260.8" fill="#5A44A0"/>
+  <rect x="496.8" y="240" width="206.4" height="260.8" fill="#352266"/>
+  <rect x="525.7" y="417.3" width="103.2" height="15.6" fill="#5A44A0"/>
+  <rect x="720" y="240" width="206.4" height="260.8" fill="#352266"/>
+  <rect x="748.9" y="417.3" width="103.2" height="15.6" fill="#5A44A0"/>
+  <rect x="273.6" y="517.6" width="206.4" height="260.8" fill="#352266"/>
+  <rect x="302.5" y="694.9" width="103.2" height="15.6" fill="#5A44A0"/>
+  <rect x="496.8" y="517.6" width="206.4" height="260.8" fill="#5A44A0"/>
+  <rect x="720" y="517.6" width="206.4" height="260.8" fill="#352266"/>
+  <rect x="748.9" y="694.9" width="103.2" height="15.6" fill="#5A44A0"/>
+  <rect x="273.6" y="795.2" width="206.4" height="260.8" fill="#352266"/>
+  <rect x="302.5" y="972.5" width="103.2" height="15.6" fill="#5A44A0"/>
+  <rect x="496.8" y="795.2" width="206.4" height="260.8" fill="#5A44A0"/>
+  <rect x="720" y="795.2" width="206.4" height="260.8" fill="#C9B8FF"/>
+  <text x="60" y="100" fill="#9384C4" font-family="'JetBrains Mono', 'Fira Mono', 'DejaVu Sans Mono', monospace" font-size="50" font-weight="500" letter-spacing="4">SOC-01</text>
+  <rect width="1200" height="1200" filter="url(#grain)" opacity="0.025"/>
+</svg>

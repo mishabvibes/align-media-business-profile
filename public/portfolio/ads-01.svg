@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <title>Placeholder for a retail sale ad campaign</title>
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="197" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="1200" fill="#141318"/>
+  <line x1="228" y1="969.6" x2="972" y2="969.6" stroke="#3A3644" stroke-width="2"/>
+  <rect x="228" y="878.7" width="119" height="90.9" fill="#2A2732"/>
+  <rect x="384.2" y="769.2" width="119" height="200.4" fill="#3A3644"/>
+  <rect x="540.5" y="660" width="119" height="309.6" fill="#2A2732"/>
+  <rect x="696.7" y="587.7" width="119" height="381.9" fill="#3A3644"/>
+  <rect x="853" y="508.8" width="119" height="460.8" fill="#7C3AED"/>
+  <polyline points="287.5,807.3 443.8,697.8 600,588.6 756.2,516.3 912.5,437.4" fill="none" stroke="#7D7887" stroke-width="4" stroke-linejoin="miter"/>
+  <path d="M897.7 458.8L912.5 437.4L886.5 436.5" fill="none" stroke="#7D7887" stroke-width="4"/>
+  <text x="60" y="100" fill="#7D7887" font-family="'JetBrains Mono', 'Fira Mono', 'DejaVu Sans Mono', monospace" font-size="50" font-weight="500" letter-spacing="4">ADS-01</text>
+  <rect width="1200" height="1200" filter="url(#grain)" opacity="0.025"/>
+</svg>

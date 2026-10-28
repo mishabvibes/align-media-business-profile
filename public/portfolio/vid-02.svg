@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500">
+  <title>Placeholder for an animated product teaser</title>
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="761" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="1500" fill="#141318"/>
+  <rect x="168" y="507" width="864" height="486" fill="#1C1A22" stroke="#3A3644" stroke-width="2"/>
+  <path d="M184 537V523H198" fill="none" stroke="#3A3644" stroke-width="2"/>
+  <path d="M1016 537V523H1002" fill="none" stroke="#3A3644" stroke-width="2"/>
+  <path d="M184 963V977H198" fill="none" stroke="#3A3644" stroke-width="2"/>
+  <path d="M1016 963V977H1002" fill="none" stroke="#3A3644" stroke-width="2"/>
+  <line x1="168" y1="1083" x2="1032" y2="1083" stroke="#2A2732" stroke-width="6"/>
+  <line x1="168" y1="1083" x2="753.8" y2="1083" stroke="#7C3AED" stroke-width="6"/>
+  <circle cx="753.8" cy="1083" r="11" fill="#7C3AED"/>
+  <line x1="168" y1="1097" x2="168" y2="1109" stroke="#3A3644" stroke-width="2"/>
+  <line x1="254.4" y1="1097" x2="254.4" y2="1103" stroke="#3A3644" stroke-width="2"/>
+  <line x1="340.8" y1="1097" x2="340.8" y2="1103" stroke="#3A3644" stroke-width="2"/>
+  <line x1="427.2" y1="1097" x2="427.2" y2="1103" stroke="#3A3644" stroke-width="2"/>
+  <line x1="513.6" y1="1097" x2="513.6" y2="1103" stroke="#3A3644" stroke-width="2"/>
+  <line x1="600" y1="1097" x2="600" y2="1109" stroke="#3A3644" stroke-width="2"/>
+  <line x1="686.4" y1="1097" x2="686.4" y2="1103" stroke="#3A3644" stroke-width="2"/>
+  <line x1="772.8" y1="1097" x2="772.8" y2="1103" stroke="#3A3644" stroke-width="2"/>
+  <line x1="859.2" y1="1097" x2="859.2" y2="1103" stroke="#3A3644" stroke-width="2"/>
+  <line x1="945.6" y1="1097" x2="945.6" y2="1103" stroke="#3A3644" stroke-width="2"/>
+  <line x1="1032" y1="1097" x2="1032" y2="1109" stroke="#3A3644" stroke-width="2"/>
+  <text x="60" y="100" fill="#7D7887" font-family="'JetBrains Mono', 'Fira Mono', 'DejaVu Sans Mono', monospace" font-size="50" font-weight="500" letter-spacing="4">VID-02</text>
+  <rect width="1200" height="1500" filter="url(#grain)" opacity="0.025"/>
+</svg>
