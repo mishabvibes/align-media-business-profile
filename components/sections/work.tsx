@@ -79,7 +79,7 @@ export function Work() {
             <TabsList
               variant="line"
               aria-label="Filter work by category"
-              className="h-auto w-full justify-start gap-2 overflow-x-auto overscroll-x-contain p-0 px-(--gutter) py-1 [scrollbar-width:none] sm:w-fit sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden"
+              className="h-auto! w-full justify-start gap-2 overflow-x-auto overscroll-x-contain p-0 px-(--gutter) py-1 [scrollbar-width:none] sm:w-fit sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden"
             >
               {filters.map((f) => (
                 <TabsTrigger key={f} value={f} className={chipClass}>

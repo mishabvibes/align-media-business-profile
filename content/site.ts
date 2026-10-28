@@ -38,7 +38,8 @@ export const site = {
   timeZone: "Asia/Kolkata",
   timeLabel: region,
   // TODO(client): placeholder claim, confirm reply hours or set to "" to hide.
-  replyHours: "Usually replies within a few hours · Mon–Sat",
+  // Non-breaking spaces keep "hours · Mon–Sat" on one line when it wraps.
+  replyHours: "Usually replies within a few hours\u00a0·\u00a0Mon–Sat",
   nav: [
     { label: "Services", href: "#services" },
     { label: "Work", href: "#work" },

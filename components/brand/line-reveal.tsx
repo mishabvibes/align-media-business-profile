@@ -28,6 +28,8 @@ export function LineReveal({ lines, delay = 0.1 }: LineRevealProps) {
       >
         {line}
       </m.span>
+      {/* Keeps a word gap between lines in the heading's text (screen readers, search). */}
+      {i < lines.length - 1 && " "}
     </span>
   ))
 }

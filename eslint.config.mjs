@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Pipeline notes and scratch QA scripts (gitignored).
+    ".sulaiman/**",
   ]),
 ]);
 

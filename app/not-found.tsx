@@ -29,7 +29,7 @@ export default function NotFound() {
           <div className="relative col-span-4 justify-self-start px-3 py-4 sm:px-5 sm:py-6 lg:col-span-7">
             <CropMarks />
             <p aria-hidden="true" className="relative select-none">
-              <span className={`${numeral} text-outline block text-transparent`}>404</span>
+              <span className={`${numeral} numeral-outline block text-transparent`}>404</span>
               {/* The misregistered second pass: same plate, violet ink, nudged off true. */}
               <span
                 className={`${numeral} absolute inset-0 block translate-x-[0.035em] translate-y-[0.025em] text-transparent [-webkit-text-stroke:1px_var(--violet-text)]`}

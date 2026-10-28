@@ -1,3 +1,5 @@
+import { Fragment } from "react"
+
 import { CropMarks } from "@/components/brand/crop-marks"
 import { Eyebrow } from "@/components/brand/eyebrow"
 import { GridLines } from "@/components/brand/grid-lines"
@@ -14,12 +16,13 @@ const grain =
 function highlight(line: string, word: string) {
   const at = line.indexOf(word)
   if (at === -1) return line
+  // Keyed: the lines go to a client component as an array of elements.
   return (
-    <>
+    <Fragment key={line}>
       {line.slice(0, at)}
       <span className="text-lilac">{word}</span>
       {line.slice(at + word.length)}
-    </>
+    </Fragment>
   )
 }
 

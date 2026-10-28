@@ -24,7 +24,7 @@ function Step({ step, index }: { step: ProcessStep; index: number }) {
       <span
         aria-hidden="true"
         className={cn(
-          "text-outline block text-transparent font-display text-8xl leading-[0.85] font-extrabold tracking-[-0.04em]",
+          "numeral-outline block text-transparent font-display text-8xl leading-[0.85] font-extrabold tracking-[-0.04em]",
           "transition-[color,-webkit-text-stroke-color] duration-700 ease-out-soft",
           filled && "text-violet-text [-webkit-text-stroke-color:var(--violet-text)]",
         )}

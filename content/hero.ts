@@ -1,7 +1,8 @@
 import { site } from "./site"
 
 export const hero = {
-  eyebrow: `Creative & digital studio — ${site.region}, ${site.country.code}`,
+  // Non-breaking space keeps "KERALA, IN" together when the eyebrow wraps on phones.
+  eyebrow: `Creative & digital studio — ${site.region},\u00a0${site.country.code}`,
   // Rendered line by line; the `highlight` word is set in lilac.
   headline: ["Design, video", "& social that move", "your brand forward."],
   highlight: "move",
