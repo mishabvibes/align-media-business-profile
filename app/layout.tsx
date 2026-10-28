@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from "next/font/google";
+import { FloatingWhatsApp } from "@/components/floating-whatsapp";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
@@ -48,6 +50,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main" tabIndex={-1} className="flex flex-1 flex-col focus:outline-none">
           {children}
         </main>
+        <SiteFooter />
+        <FloatingWhatsApp />
       </body>
     </html>
   );
