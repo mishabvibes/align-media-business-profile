@@ -13,7 +13,7 @@ import { Wordmark } from "@/components/brand/wordmark"
 
 // Scratch page for checking design tokens (task #2). Not linked from the site.
 export const metadata: Metadata = {
-  title: "Styleguide — Align Media",
+  title: "Styleguide",
   robots: { index: false, follow: false },
 }
 

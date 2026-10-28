@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
+import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { site } from "@/content/site";
 import "./globals.css";
 
 // Display + wordmark. Axes need the full variable font (200–800); we use 600–800.
@@ -28,9 +30,38 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const title = `${site.name}: Creative & Digital Studio in Kerala`;
+
+// The opengraph-image, icon and apple-icon files in app/ are picked up
+// automatically; metadataBase turns their paths into absolute URLs.
 export const metadata: Metadata = {
-  title: "Align Media",
-  description: "Design, video & social media that move your brand forward.",
+  metadataBase: new URL(site.siteUrl),
+  title: {
+    default: title,
+    template: `%s — ${site.name}`,
+  },
+  description: site.description,
+  applicationName: site.name,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "/",
+    siteName: site.name,
+    title,
+    description: site.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description: site.description,
+  },
+  formatDetection: { telephone: false },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0B0A0D",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -40,6 +71,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`dark ${bricolage.variable} ${instrumentSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <JsonLd />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-pill focus:bg-paper focus:px-5 focus:py-3 focus:font-semibold focus:text-ink"
