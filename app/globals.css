@@ -145,6 +145,17 @@
 
   --shadow-float: var(--shadow-float);
   --ease-out-soft: var(--ease-out-soft);
+
+  /* Marquee (Clients): one copy slides by its own width plus the gap. */
+  --animate-marquee: marquee var(--duration) linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
 }
 
 /* ---------------------------------------------------------------------------
