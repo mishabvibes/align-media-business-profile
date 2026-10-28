@@ -2,6 +2,14 @@ import type { Metadata } from "next"
 import { ArrowRight, ArrowDown, Phone } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { BlurFade } from "@/components/brand/blur-fade"
+import { CropMarks } from "@/components/brand/crop-marks"
+import { Eyebrow } from "@/components/brand/eyebrow"
+import { LocalTime } from "@/components/brand/local-time"
+import { Magnet } from "@/components/brand/magnet"
+import { WhatsAppButton } from "@/components/brand/whatsapp-button"
+import { WhatsAppIcon } from "@/components/brand/whatsapp-icon"
+import { Wordmark } from "@/components/brand/wordmark"
 
 // Scratch page for checking design tokens (task #2). Not linked from the site.
 export const metadata: Metadata = {
@@ -184,6 +192,56 @@ export default function Styleguide() {
             <Button variant="outline" size="icon" aria-label="Call">
               <Phone />
             </Button>
+          </div>
+        </div>
+      </section>
+      <section className="shell section-y" aria-labelledby="sg-primitives">
+        <Eyebrow index={5}>Primitives</Eyebrow>
+        <h2 id="sg-primitives" className="type-h3 mt-4 text-paper">Shared brand primitives</h2>
+
+        <div className="mt-8 flex flex-col gap-12">
+          <div className="flex flex-wrap items-center justify-between gap-6 border-y border-line py-5">
+            <Wordmark />
+            <LocalTime />
+          </div>
+
+          <Wordmark size="footer" />
+
+          <div className="flex flex-col gap-3">
+            <Eyebrow index={1}>Services</Eyebrow>
+            <Eyebrow>Creative &amp; digital studio — Kerala, IN</Eyebrow>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div className="relative bg-surface p-8">
+              <CropMarks />
+              <p className="type-small text-mute">Crop marks, always on</p>
+            </div>
+            <div className="group relative border border-line p-8">
+              <CropMarks showOnHover offset={6} />
+              <p className="type-small text-mute">Crop marks on hover, 6px outside</p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <WhatsAppIcon className="size-6 text-paper" title="WhatsApp" />
+            <WhatsAppButton size="md" icon arrow={false}>Chat</WhatsAppButton>
+            <WhatsAppButton size="lg" message="Hi Align Media, I'd like to start a project.">
+              Start a project on WhatsApp
+            </WhatsAppButton>
+            <Magnet>
+              <WhatsAppButton size="xl" />
+            </Magnet>
+            <WhatsAppButton variant="outline" icon />
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-3">
+            {["Discuss on WhatsApp", "Plan & concept", "Create & revise"].map((step, i) => (
+              <BlurFade key={step} delay={i * 0.08} className="border border-line p-6">
+                <p className="type-label text-faint">{String(i + 1).padStart(2, "0")}</p>
+                <p className="type-h3 mt-3 text-paper">{step}</p>
+              </BlurFade>
+            ))}
           </div>
         </div>
       </section>
