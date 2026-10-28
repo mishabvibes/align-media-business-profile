@@ -68,11 +68,15 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
+    // suppressHydrationWarning: the inline script below adds `js` to the class list before hydration.
     <html
       lang="en"
+      suppressHydrationWarning
       className={`dark ${bricolage.variable} ${instrumentSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        {/* Runs before first paint: reveal-on-scroll content starts hidden only when JS is on. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <JsonLd />
         <a
           href="#main"

@@ -293,6 +293,32 @@
   }
 }
 
+/* Hero headline (LineReveal): each line rises out of its mask, 80ms apart.
+   CSS rather than JS so the headline paints at first render. */
+.line-reveal {
+  animation: line-reveal 600ms cubic-bezier(0.2, 0.7, 0.1, 1) both;
+  animation-delay: calc(var(--line-reveal-delay, 0.1s) + var(--i, 0) * 80ms);
+}
+@keyframes line-reveal {
+  from {
+    transform: translateY(120%);
+  }
+}
+
+/* BlurFade: hidden until scrolled into view, but only once the inline script
+   in app/layout.tsx has marked <html> with .js, so no-JS visitors see it all. */
+[data-blur-fade] {
+  transition-property: opacity, transform, filter;
+  transition-duration: var(--bf-duration, 0.4s);
+  transition-delay: var(--bf-delay, 0s);
+  transition-timing-function: cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+.js [data-blur-fade]:not([data-shown]) {
+  opacity: 0;
+  transform: translateY(var(--bf-offset, 12px));
+  filter: blur(var(--bf-blur, 4px));
+}
+
 /* Reduced motion: final states only, no smooth scroll, marquees stop. */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -305,6 +331,18 @@
   }
   html {
     scroll-behavior: auto !important;
+  }
+  /* Delays would still hold these back; show the final state at once. */
+  .line-reveal {
+    animation: none;
+  }
+  [data-blur-fade] {
+    transition: none;
+  }
+  .js [data-blur-fade]:not([data-shown]) {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }
 

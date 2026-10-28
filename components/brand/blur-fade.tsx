@@ -1,11 +1,12 @@
 "use client"
 
 import { useRef } from "react"
-import { useInView, useReducedMotion, type UseInViewOptions } from "motion/react"
-import * as m from "motion/react-m"
+import { useInView, type UseInViewOptions } from "motion/react"
 
 // Adapted from Magic UI BlurFade (magicui.design/docs/components/blur-fade):
 // fade + 12px rise + light blur, once, as the block enters the viewport.
+// The hidden state and the transition live in globals.css ([data-blur-fade]);
+// it only applies under html.js, so without JavaScript everything is visible.
 
 type BlurFadeProps = {
   children: React.ReactNode
@@ -30,21 +31,26 @@ export function BlurFade({
   blur = "4px",
   inView = true,
   inViewMargin = "-64px",
-  as = "div",
+  as: Tag = "div",
 }: BlurFadeProps) {
   const ref = useRef<HTMLDivElement>(null)
   const seen = useInView(ref, { once: true, margin: inViewMargin })
-  const reduce = useReducedMotion()
   const visible = !inView || seen
-  const Tag = m[as] as typeof m.div
 
   return (
     <Tag
-      ref={ref}
+      ref={ref as React.Ref<never>}
       className={className}
-      initial={reduce ? false : { opacity: 0, y: offset, filter: `blur(${blur})` }}
-      animate={visible || reduce ? { opacity: 1, y: 0, filter: "blur(0px)" } : undefined}
-      transition={{ duration: reduce ? 0 : duration, delay: reduce ? 0 : delay, ease: [0.2, 0.7, 0.1, 1] }}
+      data-blur-fade=""
+      data-shown={visible ? "" : undefined}
+      style={
+        {
+          "--bf-offset": `${offset}px`,
+          "--bf-blur": blur,
+          "--bf-duration": `${duration}s`,
+          "--bf-delay": `${delay}s`,
+        } as React.CSSProperties
+      }
     >
       {children}
     </Tag>
